@@ -1,0 +1,23 @@
+{
+  "name": "unkobot",
+  "version": "1.0.0",
+  "description": "あああああああああああああああああああああああああああああああ (ブリブリブリブリュリュリュリュリュリュ ブツチチブブブチチチチブリリイリブブブブゥゥゥゥッッッ )",
+  "main": "index.js",
+  "scripts": {
+    "test": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kouwasi/UnkoBot.git"
+  },
+  "author": "kouwasi",
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/kouwasi/UnkoBot/issues"
+  },
+  "homepage": "https://github.com/kouwasi/UnkoBot#readme",
+  "dependencies": {
+    "discord.js": "^11.0.0",
+    "node-opus": "^0.2.4"
+  }
+}
