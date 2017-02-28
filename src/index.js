@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
-const token = 'your key'
+const token = 'your token'
 var msg = 'あああああああああああああああああああああああああああああああ！！！！！！！！！！！（ﾌﾞﾘﾌﾞﾘﾌﾞﾘﾌﾞﾘｭﾘｭﾘｭﾘｭﾘｭﾘｭ！！！！！！ﾌﾞﾂﾁﾁﾌﾞﾌﾞﾌﾞﾁﾁﾁﾁﾌﾞﾘﾘｲﾘﾌﾞﾌﾞﾌﾞﾌﾞｩｩｩｩｯｯｯ！！！！！！！ ）'
 
 client.on('ready', () => {
@@ -16,17 +16,19 @@ client.on('message', message => {
 	    const channel = message.member.voiceChannel;
 
 	    if (channel != undefined && channel.joinable) {
-	    channel.join()
-		.then(connection => console.log('Connected!'))
-		.catch(console.error)
+		channel.join()
+		    .then(connection => {
+			console.log('Connected!')
+			const dispatcher = connection.playFile('./voice.mp3')
+
+			dispatcher.on("end", end => {channel.leave()})
+		    })
+		    .catch(console.error)
+	    } else if (channel == undefined) {
+		message.reply('channel is undefined')
 	    } else {
 		message.reply('You do not have permission to join this voice channel.')
 	    }
-	} else if (message.content == '!d') {
-	    const channel = message.member.voiceChannel;
-
-	    channel.leave();
-	    console.log('Disconnect!');
 	}
     }
 });
